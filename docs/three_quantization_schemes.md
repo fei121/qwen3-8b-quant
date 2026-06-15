@@ -1,38 +1,38 @@
-# Qwen3-8B Three-Scheme Quantization Comparison
+# Qwen3-8B 三类量化方案对比
 
-This report compares local Qwen3-8B quantization results across three implementation ecosystems:
+本文整理 Qwen3-8B 在三条工程链路上的量化结果：
 
-1. **Intel AutoRound INT8 W8A8**, exported by AutoRound and evaluated with vLLM.
-2. **Intel AutoRound MXFP4 fakequant**, used as an accuracy-only low-bit reference.
-3. **NVIDIA TensorRT-LLM INT8 SmoothQuant**, exported through ModelOpt and evaluated as TensorRT-LLM engines.
+1. **Intel AutoRound INT8 W8A8**：由 AutoRound 导出，使用 vLLM 评测。
+2. **Intel AutoRound MXFP4 fakequant**：作为低比特精度参考，不作为真实部署速度结论。
+3. **NVIDIA TensorRT-LLM INT8 SmoothQuant**：通过 ModelOpt 导出，并以 TensorRT-LLM engine 评测。
 
-Two BF16 references are included:
+同时加入两个 BF16 参照：
 
-- vLLM BF16 baseline.
-- TensorRT-LLM BF16 engine baseline.
+- vLLM BF16 baseline。
+- TensorRT-LLM BF16 engine baseline。
 
-All GSM8K and C-Eval results are 5-shot. GSM8K reports `exact_match,flexible-extract`; C-Eval valid reports `acc`.
+所有 GSM8K 和 C-Eval 结果均为 5-shot。GSM8K 报告 `exact_match,flexible-extract`，C-Eval valid 报告 `acc`。
 
-## Accuracy Overview
+## 精度总览
 
-| Ecosystem | Method | Precision | GSM8K flexible | C-Eval acc | Notes |
+| 生态 | 方法 | 精度格式 | GSM8K flexible | C-Eval acc | 说明 |
 |---|---|---:|---:|---:|---|
-| vLLM | BF16 baseline | BF16 | 0.8802 | 0.7905 | vLLM full-precision reference |
-| TensorRT-LLM | BF16 baseline | BF16 | 0.8848 | 0.7853 | TensorRT-LLM engine reference |
-| AutoRound | AutoRound | INT8 W8A8 | 0.8749 | 0.7764 | Accuracy stays close to vLLM BF16 |
-| AutoRound | AutoRound | MXFP4 fakequant | 0.8613 | 0.7667 | Fakequant; not a real speed benchmark |
-| TensorRT-LLM | ModelOpt SmoothQuant | INT8 W8A8 | 0.7983 | 0.6872 | Large accuracy drop in the tested configuration |
+| vLLM | BF16 baseline | BF16 | 0.8802 | 0.7905 | vLLM 全精度参照 |
+| TensorRT-LLM | BF16 baseline | BF16 | 0.8848 | 0.7853 | TensorRT-LLM engine 参照 |
+| AutoRound | AutoRound | INT8 W8A8 | 0.8749 | 0.7764 | 精度接近 vLLM BF16 |
+| AutoRound | AutoRound | MXFP4 fakequant | 0.8613 | 0.7667 | fakequant，只看精度，不看真实速度 |
+| TensorRT-LLM | ModelOpt SmoothQuant | INT8 W8A8 | 0.7983 | 0.6872 | 当前配置下掉点明显 |
 
-Additional vLLM ecosystem references:
+补充的 vLLM 生态结果：
 
-| Ecosystem | Method | Precision | GSM8K flexible | C-Eval acc |
+| 生态 | 方法 | 精度格式 | GSM8K flexible | C-Eval acc |
 |---|---|---:|---:|---:|
 | vLLM | LLM Compressor SmoothQuant + GPTQ | INT8 W8A8 | 0.8719 | 0.7853 |
 | vLLM | LLM Compressor MXFP4A16 | MXFP4A16 | 0.8643 | 0.7608 |
 
-## Accuracy Delta Against BF16
+## 相对 BF16 的变化
 
-| Method | Baseline | GSM8K delta | C-Eval delta |
+| 方法 | 对比基线 | GSM8K 变化 | C-Eval 变化 |
 |---|---|---:|---:|
 | AutoRound INT8 W8A8 | vLLM BF16 | -0.0053 | -0.0141 |
 | AutoRound MXFP4 fakequant | vLLM BF16 | -0.0190 | -0.0238 |
@@ -40,21 +40,21 @@ Additional vLLM ecosystem references:
 | LLM Compressor MXFP4A16 | vLLM BF16 | -0.0159 | -0.0297 |
 | TensorRT-LLM INT8 SmoothQuant | TensorRT-LLM BF16 | -0.0864 | -0.0981 |
 
-AutoRound INT8 and LLM Compressor INT8 both preserve accuracy well. TensorRT-LLM INT8 SmoothQuant gives speedup in its own workflow but loses much more accuracy before additional tuning.
+AutoRound INT8 和 LLM Compressor INT8 都能较好保持精度。TensorRT-LLM INT8 SmoothQuant 在本项目测试配置下有同 workflow 内的速度收益，但精度损失明显更大，因此需要后续根因分析。
 
-## Speed Notes
+## 性能数据如何解读
 
-The collected speed data uses two different measurement styles:
+本项目收集了两类速度数据：
 
-- vLLM benchmark throughput from offline and serve benchmarks.
-- End-to-end evaluation wall time from lm-eval/TensorRT-LLM wrappers.
+- vLLM offline / serve benchmark，适合看 vLLM 生态内的吞吐能力。
+- lm-eval / TensorRT-LLM wrapper 的端到端耗时，包含评测框架、调度和数据处理开销。
 
-These numbers should not be mixed as if they were the same benchmark. The reliable TensorRT-LLM statement is intra-workflow: INT8 SmoothQuant was faster than the TensorRT-LLM BF16 engine for both GSM8K and C-Eval in this setup.
+这两类数据不能混成同一个 benchmark 直接比较。对 TensorRT-LLM 更可靠的说法是：在同一 TensorRT-LLM workflow 内，INT8 SmoothQuant 比 BF16 engine 更快；但这不等价于它必然快于 vLLM。
 
-## Conclusion
+## 结论
 
-- **Best INT8 accuracy retention**: AutoRound INT8 and vLLM LLM Compressor INT8.
-- **Best low-bit accuracy reference**: AutoRound MXFP4 fakequant and vLLM MXFP4A16 are close enough to motivate further low-bit experiments, but only vLLM MXFP4A16 is a real deployment-style benchmark here.
-- **Most important anomaly**: TensorRT-LLM INT8 SmoothQuant dropped far more accuracy than expected, motivating the root-cause study in [`tensorrt_llm_int8_down_proj_analysis.md`](tensorrt_llm_int8_down_proj_analysis.md).
+- **INT8 精度保持最好的一组结果**：AutoRound INT8 与 vLLM LLM Compressor INT8。
+- **低比特参考价值最高的结果**：AutoRound MXFP4 fakequant 与 vLLM MXFP4A16，二者说明低比特方向值得继续探索；其中只有 vLLM MXFP4A16 是真实部署形态的 benchmark。
+- **最重要的异常现象**：TensorRT-LLM INT8 SmoothQuant 掉点远超其他 INT8 链路，因此引出了 [`tensorrt_llm_int8_down_proj_analysis.md`](tensorrt_llm_int8_down_proj_analysis.md) 中的 `mlp.down_proj` 根因分析。
 
-Structured data lives in [`../results/qwen3_8b_quantization_summary.csv`](../results/qwen3_8b_quantization_summary.csv).
+结构化数据位于 [`../results/qwen3_8b_quantization_summary.csv`](../results/qwen3_8b_quantization_summary.csv)。
