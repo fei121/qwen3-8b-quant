@@ -1,49 +1,49 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="430" viewBox="0 0 960 430">
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="470" viewBox="0 0 960 470">
 <rect width="100%" height="100%" fill="#ffffff"/>
 <text x="78" y="36" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#1f2933">Activation Diagnosis: Layer SQNR</text>
 <text x="78" y="62" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#52606d">Layer 16-21 collapse in ModelOpt INT8, while vLLM INT8 remains high-SQNR</text>
-<line x1="78" y1="358.00" x2="924" y2="358.00" stroke="#edf2f7" stroke-width="1"/>
-<text x="68" y="363.00" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52606d">0.000</text>
-<line x1="78" y1="290.50" x2="924" y2="290.50" stroke="#edf2f7" stroke-width="1"/>
-<text x="68" y="295.50" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52606d">10.500</text>
-<line x1="78" y1="223.00" x2="924" y2="223.00" stroke="#edf2f7" stroke-width="1"/>
-<text x="68" y="228.00" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52606d">21.000</text>
-<line x1="78" y1="155.50" x2="924" y2="155.50" stroke="#edf2f7" stroke-width="1"/>
-<text x="68" y="160.50" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52606d">31.500</text>
-<line x1="78" y1="88.00" x2="924" y2="88.00" stroke="#edf2f7" stroke-width="1"/>
-<text x="68" y="93.00" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52606d">42.000</text>
-<line x1="78.00" y1="88" x2="78.00" y2="358" stroke="#f5f7fa" stroke-width="1"/>
-<text x="78.00" y="386" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52606d">0</text>
-<line x1="198.86" y1="88" x2="198.86" y2="358" stroke="#f5f7fa" stroke-width="1"/>
-<text x="198.86" y="386" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52606d">5</text>
-<line x1="319.71" y1="88" x2="319.71" y2="358" stroke="#f5f7fa" stroke-width="1"/>
-<text x="319.71" y="386" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52606d">10</text>
-<line x1="440.57" y1="88" x2="440.57" y2="358" stroke="#f5f7fa" stroke-width="1"/>
-<text x="440.57" y="386" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52606d">15</text>
-<line x1="561.43" y1="88" x2="561.43" y2="358" stroke="#f5f7fa" stroke-width="1"/>
-<text x="561.43" y="386" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52606d">20</text>
-<line x1="682.29" y1="88" x2="682.29" y2="358" stroke="#f5f7fa" stroke-width="1"/>
-<text x="682.29" y="386" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52606d">25</text>
-<line x1="803.14" y1="88" x2="803.14" y2="358" stroke="#f5f7fa" stroke-width="1"/>
-<text x="803.14" y="386" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52606d">30</text>
-<line x1="924.00" y1="88" x2="924.00" y2="358" stroke="#f5f7fa" stroke-width="1"/>
-<text x="924.00" y="386" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52606d">35</text>
-<line x1="78" y1="358" x2="924" y2="358" stroke="#9aa5b1" stroke-width="1"/>
-<line x1="78" y1="88" x2="78" y2="358" stroke="#9aa5b1" stroke-width="1"/>
-<polyline points="78.00,111.10 102.17,109.96 126.34,111.29 150.51,117.16 174.69,123.48 198.86,127.47 223.03,99.69 247.20,99.73 271.37,99.75 295.54,99.77 319.71,99.77 343.89,99.79 368.06,99.82 392.23,99.87 416.40,99.92 440.57,99.98 464.74,99.22 488.91,99.31 513.09,99.46 537.26,99.67 561.43,99.95 585.60,100.32 609.77,100.66 633.94,101.41 658.11,102.52 682.29,103.67 706.46,105.24 730.63,107.21 754.80,109.93 778.97,113.22 803.14,117.28 827.31,121.78 851.49,126.80 875.66,132.37 899.83,144.70 924.00,198.07" fill="none" stroke="#197278" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="78.00" cy="111.10" r="3.5" fill="#197278"/>
-<circle cx="464.74" cy="99.22" r="3.5" fill="#197278"/>
-<circle cx="585.60" cy="100.32" r="3.5" fill="#197278"/>
-<circle cx="924.00" cy="198.07" r="3.5" fill="#197278"/>
-<rect x="702" y="91" width="16" height="4" fill="#197278"/>
-<text x="726" y="97" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#1f2933">vLLM LLM Compressor INT8</text>
-<polyline points="78.00,265.41 102.17,272.49 126.34,279.71 150.51,280.15 174.69,276.63 198.86,272.77 223.03,296.86 247.20,296.87 271.37,296.87 295.54,296.87 319.71,296.83 343.89,296.81 368.06,296.79 392.23,296.78 416.40,296.79 440.57,296.80 464.74,337.12 488.91,337.11 513.09,337.02 537.26,336.81 561.43,336.68 585.60,336.49 609.77,336.06 633.94,335.30 658.11,334.18 682.29,333.28 706.46,332.08 730.63,330.90 754.80,329.48 778.97,327.48 803.14,325.36 827.31,323.07 851.49,321.13 875.66,317.57 899.83,295.26 924.00,315.75" fill="none" stroke="#c44536" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="78.00" cy="265.41" r="3.5" fill="#c44536"/>
-<circle cx="464.74" cy="337.12" r="3.5" fill="#c44536"/>
-<circle cx="585.60" cy="336.49" r="3.5" fill="#c44536"/>
-<circle cx="924.00" cy="315.75" r="3.5" fill="#c44536"/>
-<rect x="702" y="113" width="16" height="4" fill="#c44536"/>
-<text x="726" y="119" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#1f2933">ModelOpt INT8 SmoothQuant</text>
-<text x="501.00" y="412" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#52606d">Decoder layer</text>
-<text transform="translate(22 223.00) rotate(-90)" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#52606d">SQNR dB</text>
+<rect x="560" y="76" width="18" height="5" fill="#197278"/>
+<text x="588" y="82" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#1f2933">vLLM INT8 W8A8</text>
+<rect x="560" y="100" width="18" height="5" fill="#c44536"/>
+<text x="588" y="106" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#1f2933">ModelOpt INT8 SQ</text>
+<line x1="78" y1="398.00" x2="924" y2="398.00" stroke="#edf2f7" stroke-width="1"/>
+<text x="68" y="403.00" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52606d">0.000</text>
+<line x1="78" y1="330.50" x2="924" y2="330.50" stroke="#edf2f7" stroke-width="1"/>
+<text x="68" y="335.50" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52606d">10.500</text>
+<line x1="78" y1="263.00" x2="924" y2="263.00" stroke="#edf2f7" stroke-width="1"/>
+<text x="68" y="268.00" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52606d">21.000</text>
+<line x1="78" y1="195.50" x2="924" y2="195.50" stroke="#edf2f7" stroke-width="1"/>
+<text x="68" y="200.50" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52606d">31.500</text>
+<line x1="78" y1="128.00" x2="924" y2="128.00" stroke="#edf2f7" stroke-width="1"/>
+<text x="68" y="133.00" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52606d">42.000</text>
+<line x1="78.00" y1="128" x2="78.00" y2="398" stroke="#f5f7fa" stroke-width="1"/>
+<text x="78.00" y="426" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52606d">0</text>
+<line x1="198.86" y1="128" x2="198.86" y2="398" stroke="#f5f7fa" stroke-width="1"/>
+<text x="198.86" y="426" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52606d">5</text>
+<line x1="319.71" y1="128" x2="319.71" y2="398" stroke="#f5f7fa" stroke-width="1"/>
+<text x="319.71" y="426" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52606d">10</text>
+<line x1="440.57" y1="128" x2="440.57" y2="398" stroke="#f5f7fa" stroke-width="1"/>
+<text x="440.57" y="426" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52606d">15</text>
+<line x1="561.43" y1="128" x2="561.43" y2="398" stroke="#f5f7fa" stroke-width="1"/>
+<text x="561.43" y="426" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52606d">20</text>
+<line x1="682.29" y1="128" x2="682.29" y2="398" stroke="#f5f7fa" stroke-width="1"/>
+<text x="682.29" y="426" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52606d">25</text>
+<line x1="803.14" y1="128" x2="803.14" y2="398" stroke="#f5f7fa" stroke-width="1"/>
+<text x="803.14" y="426" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52606d">30</text>
+<line x1="924.00" y1="128" x2="924.00" y2="398" stroke="#f5f7fa" stroke-width="1"/>
+<text x="924.00" y="426" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52606d">35</text>
+<line x1="78" y1="398" x2="924" y2="398" stroke="#9aa5b1" stroke-width="1"/>
+<line x1="78" y1="128" x2="78" y2="398" stroke="#9aa5b1" stroke-width="1"/>
+<polyline points="78.00,151.10 102.17,149.96 126.34,151.29 150.51,157.16 174.69,163.48 198.86,167.47 223.03,139.69 247.20,139.73 271.37,139.75 295.54,139.77 319.71,139.77 343.89,139.79 368.06,139.82 392.23,139.87 416.40,139.92 440.57,139.98 464.74,139.22 488.91,139.31 513.09,139.46 537.26,139.67 561.43,139.95 585.60,140.32 609.77,140.66 633.94,141.41 658.11,142.52 682.29,143.67 706.46,145.24 730.63,147.21 754.80,149.93 778.97,153.22 803.14,157.28 827.31,161.78 851.49,166.80 875.66,172.37 899.83,184.70 924.00,238.07" fill="none" stroke="#197278" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="78.00" cy="151.10" r="3.5" fill="#197278"/>
+<circle cx="464.74" cy="139.22" r="3.5" fill="#197278"/>
+<circle cx="585.60" cy="140.32" r="3.5" fill="#197278"/>
+<circle cx="924.00" cy="238.07" r="3.5" fill="#197278"/>
+<polyline points="78.00,305.41 102.17,312.49 126.34,319.71 150.51,320.15 174.69,316.63 198.86,312.77 223.03,336.86 247.20,336.87 271.37,336.87 295.54,336.87 319.71,336.83 343.89,336.81 368.06,336.79 392.23,336.78 416.40,336.79 440.57,336.80 464.74,377.12 488.91,377.11 513.09,377.02 537.26,376.81 561.43,376.68 585.60,376.49 609.77,376.06 633.94,375.30 658.11,374.18 682.29,373.28 706.46,372.08 730.63,370.90 754.80,369.48 778.97,367.48 803.14,365.36 827.31,363.07 851.49,361.13 875.66,357.57 899.83,335.26 924.00,355.75" fill="none" stroke="#c44536" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="78.00" cy="305.41" r="3.5" fill="#c44536"/>
+<circle cx="464.74" cy="377.12" r="3.5" fill="#c44536"/>
+<circle cx="585.60" cy="376.49" r="3.5" fill="#c44536"/>
+<circle cx="924.00" cy="355.75" r="3.5" fill="#c44536"/>
+<text x="501.00" y="452" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#52606d">Decoder layer</text>
+<text transform="translate(22 263.00) rotate(-90)" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#52606d">SQNR dB</text>
 </svg>
