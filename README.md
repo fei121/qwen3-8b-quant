@@ -31,6 +31,51 @@ Structured data:
 - [`results/tensorrt_llm_down_proj_ablation.csv`](results/tensorrt_llm_down_proj_ablation.csv)
 - [`results/tensorrt_llm_down_proj_ablation.json`](results/tensorrt_llm_down_proj_ablation.json)
 
+## vLLM Inference Benchmark
+
+The vLLM + LLM Compressor runs are the cleanest serving reference in this study. They use the same vLLM evaluation stack for BF16, INT8 W8A8, and MXFP4A16, so the accuracy and throughput trade-off is easier to compare than cross-backend wall-clock time.
+
+![vLLM GSM8K accuracy](assets/figures/vllm_gsm8k_accuracy.svg)
+
+Accuracy stayed close to the BF16 baseline:
+
+| vLLM run | GSM8K flexible | Drop vs BF16 | C-Eval acc | Drop vs BF16 |
+|---|---:|---:|---:|---:|
+| BF16 baseline | 0.8802 | - | 0.7905 | - |
+| LLM Compressor INT8 W8A8 | 0.8719 | -0.0083 | 0.7853 | -0.0052 |
+| LLM Compressor MXFP4A16 | 0.8643 | -0.0159 | 0.7608 | -0.0297 |
+
+The serving benchmark tells a different part of the story: the INT8 W8A8 model gave the strongest online throughput in this setup, while MXFP4A16 had the highest offline decode rate but lower online output throughput.
+
+![vLLM offline decode throughput](assets/figures/vllm_offline_decode.svg)
+
+![vLLM serving output throughput](assets/figures/vllm_serve_output.svg)
+
+| vLLM run | Offline decode tok/s | Serve req/s | Serve output tok/s | TTFT P50/P95/P99 ms | TPOT P50/P95/P99 ms |
+|---|---:|---:|---:|---:|---:|
+| BF16 baseline | 2,980 | 2.04 | 261 | 29,250 / 57,082 / 57,981 | 22 / 30 / 31 |
+| LLM Compressor INT8 W8A8 | 4,590 | 8.48 | 1,085 | 6,623 / 12,439 / 12,716 | 39 / 39 / 54 |
+| LLM Compressor MXFP4A16 | 5,373 | 6.09 | 780 | 7,777 / 17,860 / 18,419 | 81 / 83 / 90 |
+
+The practical takeaway is that INT8 W8A8 is the best-balanced vLLM option in this experiment: it preserves both GSM8K and C-Eval accuracy well, while improving serving output throughput from `261` to `1,085` output tokens/s.
+
+## Activation Diagnosis
+
+The activation probes compare layer hidden states against the BF16 reference. This is useful because the high-level scores alone do not say whether a quantized model is failing everywhere, drifting in a few layers, or accumulating small noise across the stack.
+
+![Activation cosine comparison](assets/figures/activation_diagnosis_cosine_comparison.svg)
+
+![Activation SQNR comparison](assets/figures/activation_diagnosis_sqnr_comparison.svg)
+
+The two INT8 flows behaved very differently:
+
+| Flow | Mean layer cosine | Worst layer | Worst cosine | Worst SQNR | Interpretation |
+|---|---:|---|---:|---:|---|
+| vLLM LLM Compressor INT8 W8A8 | 0.999886 | layer 35 | 0.998377 | 24.88 dB | Small accumulated quantization noise, no single catastrophic drift point |
+| ModelOpt INT8 SmoothQuant | 0.880436 | layer 16 | 0.730791 | 3.25 dB | Clear activation drift around layers 16-21 |
+
+This explains why the vLLM INT8 result remains close to BF16, while the original TensorRT-LLM / ModelOpt INT8 run loses much more accuracy. The layer 16-21 drift was a useful symptom, but later ablations showed that the larger root cause is the W8A8 quantization of `mlp.down_proj`.
+
 ## TensorRT-LLM INT8 Root Cause
 
 The first TensorRT-LLM INT8 SmoothQuant result was fast relative to its BF16 engine baseline, but it lost roughly:

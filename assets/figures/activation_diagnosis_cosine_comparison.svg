@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="430" viewBox="0 0 960 430">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="78" y="36" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#1f2933">Activation Diagnosis: Layer Cosine Similarity</text>
+<text x="78" y="62" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#52606d">vLLM INT8 stays near BF16; ModelOpt INT8 shows large layer-wise drift</text>
+<line x1="78" y1="358.00" x2="924" y2="358.00" stroke="#edf2f7" stroke-width="1"/>
+<text x="68" y="363.00" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52606d">0.700</text>
+<line x1="78" y1="290.50" x2="924" y2="290.50" stroke="#edf2f7" stroke-width="1"/>
+<text x="68" y="295.50" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52606d">0.776</text>
+<line x1="78" y1="223.00" x2="924" y2="223.00" stroke="#edf2f7" stroke-width="1"/>
+<text x="68" y="228.00" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52606d">0.852</text>
+<line x1="78" y1="155.50" x2="924" y2="155.50" stroke="#edf2f7" stroke-width="1"/>
+<text x="68" y="160.50" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52606d">0.929</text>
+<line x1="78" y1="88.00" x2="924" y2="88.00" stroke="#edf2f7" stroke-width="1"/>
+<text x="68" y="93.00" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52606d">1.005</text>
+<line x1="78.00" y1="88" x2="78.00" y2="358" stroke="#f5f7fa" stroke-width="1"/>
+<text x="78.00" y="386" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52606d">0</text>
+<line x1="198.86" y1="88" x2="198.86" y2="358" stroke="#f5f7fa" stroke-width="1"/>
+<text x="198.86" y="386" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52606d">5</text>
+<line x1="319.71" y1="88" x2="319.71" y2="358" stroke="#f5f7fa" stroke-width="1"/>
+<text x="319.71" y="386" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52606d">10</text>
+<line x1="440.57" y1="88" x2="440.57" y2="358" stroke="#f5f7fa" stroke-width="1"/>
+<text x="440.57" y="386" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52606d">15</text>
+<line x1="561.43" y1="88" x2="561.43" y2="358" stroke="#f5f7fa" stroke-width="1"/>
+<text x="561.43" y="386" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52606d">20</text>
+<line x1="682.29" y1="88" x2="682.29" y2="358" stroke="#f5f7fa" stroke-width="1"/>
+<text x="682.29" y="386" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52606d">25</text>
+<line x1="803.14" y1="88" x2="803.14" y2="358" stroke="#f5f7fa" stroke-width="1"/>
+<text x="803.14" y="386" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52606d">30</text>
+<line x1="924.00" y1="88" x2="924.00" y2="358" stroke="#f5f7fa" stroke-width="1"/>
+<text x="924.00" y="386" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#52606d">35</text>
+<line x1="78" y1="358" x2="924" y2="358" stroke="#9aa5b1" stroke-width="1"/>
+<line x1="78" y1="88" x2="78" y2="358" stroke="#9aa5b1" stroke-width="1"/>
+<polyline points="78.00,92.48 102.17,92.48 126.34,92.49 150.51,92.50 174.69,92.52 198.86,92.54 223.03,92.47 247.20,92.47 271.37,92.47 295.54,92.47 319.71,92.47 343.89,92.47 368.06,92.47 392.23,92.47 416.40,92.47 440.57,92.47 464.74,92.47 488.91,92.47 513.09,92.47 537.26,92.47 561.43,92.47 585.60,92.47 609.77,92.47 633.94,92.47 658.11,92.47 682.29,92.47 706.46,92.48 730.63,92.48 754.80,92.49 778.97,92.49 803.14,92.51 827.31,92.52 851.49,92.54 875.66,92.56 899.83,92.64 924.00,93.86" fill="none" stroke="#197278" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="78.00" cy="92.48" r="3.5" fill="#197278"/>
+<circle cx="464.74" cy="92.47" r="3.5" fill="#197278"/>
+<circle cx="585.60" cy="92.47" r="3.5" fill="#197278"/>
+<circle cx="924.00" cy="93.86" r="3.5" fill="#197278"/>
+<rect x="702" y="91" width="16" height="4" fill="#197278"/>
+<text x="726" y="97" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#1f2933">vLLM LLM Compressor INT8</text>
+<polyline points="78.00,108.25 102.17,112.09 126.34,119.13 150.51,119.82 174.69,116.63 198.86,113.46 223.03,93.96 247.20,94.28 271.37,94.77 295.54,94.91 319.71,94.97 343.89,95.29 368.06,95.86 392.23,96.19 416.40,96.80 440.57,97.28 464.74,330.74 488.91,330.56 513.09,329.61 537.26,327.59 561.43,326.30 585.60,324.42 609.77,320.36 633.94,313.22 658.11,303.21 682.29,295.46 706.46,285.68 730.63,276.48 754.80,265.95 778.97,252.38 803.14,238.90 827.31,225.95 851.49,215.97 875.66,199.96 899.83,138.69 924.00,192.59" fill="none" stroke="#c44536" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="78.00" cy="108.25" r="3.5" fill="#c44536"/>
+<circle cx="464.74" cy="330.74" r="3.5" fill="#c44536"/>
+<circle cx="585.60" cy="324.42" r="3.5" fill="#c44536"/>
+<circle cx="924.00" cy="192.59" r="3.5" fill="#c44536"/>
+<rect x="702" y="113" width="16" height="4" fill="#c44536"/>
+<text x="726" y="119" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#1f2933">ModelOpt INT8 SmoothQuant</text>
+<text x="501.00" y="412" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#52606d">Decoder layer</text>
+<text transform="translate(22 223.00) rotate(-90)" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#52606d">Cosine similarity</text>
+</svg>
