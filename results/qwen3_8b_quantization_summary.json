@@ -1,0 +1,156 @@
+[
+  {
+    "backend": "vLLM",
+    "method": "BF16 baseline",
+    "precision": "BF16",
+    "dataset": "GSM8K",
+    "metric": "exact_match,flexible-extract",
+    "score": 0.8802,
+    "baseline": "self",
+    "delta": 0.0,
+    "notes": "vLLM full-precision baseline."
+  },
+  {
+    "backend": "vLLM",
+    "method": "BF16 baseline",
+    "precision": "BF16",
+    "dataset": "C-Eval valid",
+    "metric": "acc",
+    "score": 0.7905,
+    "baseline": "self",
+    "delta": 0.0,
+    "notes": "vLLM full-precision baseline."
+  },
+  {
+    "backend": "TensorRT-LLM",
+    "method": "BF16 baseline",
+    "precision": "BF16",
+    "dataset": "GSM8K",
+    "metric": "exact_match,flexible-extract",
+    "score": 0.8848,
+    "baseline": "self",
+    "delta": 0.0,
+    "notes": "TensorRT-LLM full-precision engine baseline."
+  },
+  {
+    "backend": "TensorRT-LLM",
+    "method": "BF16 baseline",
+    "precision": "BF16",
+    "dataset": "C-Eval valid",
+    "metric": "acc",
+    "score": 0.7853,
+    "baseline": "self",
+    "delta": 0.0,
+    "notes": "TensorRT-LLM full-precision engine baseline."
+  },
+  {
+    "backend": "vLLM",
+    "method": "AutoRound INT8 W8A8",
+    "precision": "INT8 W8A8",
+    "dataset": "GSM8K",
+    "metric": "exact_match,flexible-extract",
+    "score": 0.8749,
+    "baseline": "vLLM BF16",
+    "delta": -0.0053,
+    "notes": "Intel AutoRound export evaluated with vLLM."
+  },
+  {
+    "backend": "vLLM",
+    "method": "AutoRound INT8 W8A8",
+    "precision": "INT8 W8A8",
+    "dataset": "C-Eval valid",
+    "metric": "acc",
+    "score": 0.7764,
+    "baseline": "vLLM BF16",
+    "delta": -0.0141,
+    "notes": "Intel AutoRound export evaluated with vLLM."
+  },
+  {
+    "backend": "vLLM",
+    "method": "AutoRound MXFP4 fakequant",
+    "precision": "MXFP4 fakequant",
+    "dataset": "GSM8K",
+    "metric": "exact_match,flexible-extract",
+    "score": 0.8613,
+    "baseline": "vLLM BF16",
+    "delta": -0.019,
+    "notes": "Fakequant result; not a real serving-speed benchmark."
+  },
+  {
+    "backend": "vLLM",
+    "method": "AutoRound MXFP4 fakequant",
+    "precision": "MXFP4 fakequant",
+    "dataset": "C-Eval valid",
+    "metric": "acc",
+    "score": 0.7667,
+    "baseline": "vLLM BF16",
+    "delta": -0.0238,
+    "notes": "Fakequant result; not a real serving-speed benchmark."
+  },
+  {
+    "backend": "TensorRT-LLM",
+    "method": "ModelOpt SmoothQuant",
+    "precision": "INT8 W8A8",
+    "dataset": "GSM8K",
+    "metric": "exact_match,flexible-extract",
+    "score": 0.7983,
+    "baseline": "TensorRT-LLM BF16",
+    "delta": -0.0864,
+    "notes": "Original INT8 SmoothQuant result before root-cause ablations."
+  },
+  {
+    "backend": "TensorRT-LLM",
+    "method": "ModelOpt SmoothQuant",
+    "precision": "INT8 W8A8",
+    "dataset": "C-Eval valid",
+    "metric": "acc",
+    "score": 0.6872,
+    "baseline": "TensorRT-LLM BF16",
+    "delta": -0.0981,
+    "notes": "Original INT8 SmoothQuant result before root-cause ablations."
+  },
+  {
+    "backend": "vLLM",
+    "method": "LLM Compressor SmoothQuant + GPTQ",
+    "precision": "INT8 W8A8",
+    "dataset": "GSM8K",
+    "metric": "exact_match,flexible-extract",
+    "score": 0.8719,
+    "baseline": "vLLM BF16",
+    "delta": -0.0083,
+    "notes": "vLLM ecosystem reference run."
+  },
+  {
+    "backend": "vLLM",
+    "method": "LLM Compressor SmoothQuant + GPTQ",
+    "precision": "INT8 W8A8",
+    "dataset": "C-Eval valid",
+    "metric": "acc",
+    "score": 0.7853,
+    "baseline": "vLLM BF16",
+    "delta": -0.0052,
+    "notes": "vLLM ecosystem reference run."
+  },
+  {
+    "backend": "vLLM",
+    "method": "LLM Compressor MXFP4A16",
+    "precision": "MXFP4A16",
+    "dataset": "GSM8K",
+    "metric": "exact_match,flexible-extract",
+    "score": 0.8643,
+    "baseline": "vLLM BF16",
+    "delta": -0.0159,
+    "notes": "vLLM ecosystem reference run."
+  },
+  {
+    "backend": "vLLM",
+    "method": "LLM Compressor MXFP4A16",
+    "precision": "MXFP4A16",
+    "dataset": "C-Eval valid",
+    "metric": "acc",
+    "score": 0.7608,
+    "baseline": "vLLM BF16",
+    "delta": -0.0297,
+    "notes": "vLLM ecosystem reference run."
+  }
+]

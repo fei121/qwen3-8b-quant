@@ -1,0 +1,15 @@
+backend,method,precision,dataset,metric,score,baseline,delta,notes
+vLLM,BF16 baseline,BF16,GSM8K,"exact_match,flexible-extract",0.8802,self,0.0,vLLM full-precision baseline.
+vLLM,BF16 baseline,BF16,C-Eval valid,acc,0.7905,self,0.0,vLLM full-precision baseline.
+TensorRT-LLM,BF16 baseline,BF16,GSM8K,"exact_match,flexible-extract",0.8848,self,0.0,TensorRT-LLM full-precision engine baseline.
+TensorRT-LLM,BF16 baseline,BF16,C-Eval valid,acc,0.7853,self,0.0,TensorRT-LLM full-precision engine baseline.
+vLLM,AutoRound INT8 W8A8,INT8 W8A8,GSM8K,"exact_match,flexible-extract",0.8749,vLLM BF16,-0.0053,Intel AutoRound export evaluated with vLLM.
+vLLM,AutoRound INT8 W8A8,INT8 W8A8,C-Eval valid,acc,0.7764,vLLM BF16,-0.0141,Intel AutoRound export evaluated with vLLM.
+vLLM,AutoRound MXFP4 fakequant,MXFP4 fakequant,GSM8K,"exact_match,flexible-extract",0.8613,vLLM BF16,-0.019,Fakequant result; not a real serving-speed benchmark.
+vLLM,AutoRound MXFP4 fakequant,MXFP4 fakequant,C-Eval valid,acc,0.7667,vLLM BF16,-0.0238,Fakequant result; not a real serving-speed benchmark.
+TensorRT-LLM,ModelOpt SmoothQuant,INT8 W8A8,GSM8K,"exact_match,flexible-extract",0.7983,TensorRT-LLM BF16,-0.0864,Original INT8 SmoothQuant result before root-cause ablations.
+TensorRT-LLM,ModelOpt SmoothQuant,INT8 W8A8,C-Eval valid,acc,0.6872,TensorRT-LLM BF16,-0.0981,Original INT8 SmoothQuant result before root-cause ablations.
+vLLM,LLM Compressor SmoothQuant + GPTQ,INT8 W8A8,GSM8K,"exact_match,flexible-extract",0.8719,vLLM BF16,-0.0083,vLLM ecosystem reference run.
+vLLM,LLM Compressor SmoothQuant + GPTQ,INT8 W8A8,C-Eval valid,acc,0.7853,vLLM BF16,-0.0052,vLLM ecosystem reference run.
+vLLM,LLM Compressor MXFP4A16,MXFP4A16,GSM8K,"exact_match,flexible-extract",0.8643,vLLM BF16,-0.0159,vLLM ecosystem reference run.
+vLLM,LLM Compressor MXFP4A16,MXFP4A16,C-Eval valid,acc,0.7608,vLLM BF16,-0.0297,vLLM ecosystem reference run.
